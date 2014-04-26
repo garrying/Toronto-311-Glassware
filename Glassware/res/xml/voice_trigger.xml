@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<trigger command="POST_AN_UPDATE" >
+
+    <constraints
+        camera="true"
+        microphone="true"
+        network="true" />
+
+</trigger>

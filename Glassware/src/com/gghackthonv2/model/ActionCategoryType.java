@@ -87,19 +87,19 @@ public class ActionCategoryType {
 		HashMap<String, List<String>> map = new HashMap<String, List<String>>();
 
 		List<String> sidewalkGraffiti = Arrays
-				.asList("Graffiti on a City road, sidewalk, or bridge Report graffiti on a City road, sidewalk, or bridge.");
+				.asList("Graffiti on a city road, sidewalk, or bridge.");
 		List<String> sidewalkLitter = Arrays
-				.asList("Report loose litter on a sidewalk or boulevard to be picked up by the City.");
+				.asList("Report loose litter on a sidewalk to be picked up.");
 		List<String> sidewalkDamage = Arrays
-				.asList("Report minor sidewalk damage. If this represents a significant safety risk, please call 311.");
+				.asList("Report minor sidewalk damage. Call 311 for significant safety risks.");
 		List<String> sidewalkTiming = Arrays
-				.asList("Report a pedestrian signal timing issue. If this is a another type of traffic signal issue or represents a significant safety risk, please call 311.");
+				.asList("Pedestrian signal timing issue at an intersection.");
 		List<String> sidewalkMaintanence = Arrays
-				.asList("Request snow ploughing or sanding/salting at a TTC bus/streetcar stop. Please wait until at least 72 hours after a snowfall/storm.",
-						"Request snow ploughing or sanding/salting on a City walkway. Please wait until at least 72 hours after a snowfall/storm.",
-						"Request sanding/salting on the pedestrian portion of a City bridge. Please wait until at least 72 hours after a snowfall/storm.",
-						"Request clearing of a snow pile that is blocking traffic flow/sightlines, on a boulevard, or in a school bus loading zone.",
-						"Request snow ploughing or sanding/salting on a City sidewalk. Please wait until at least 72 hours after a snowfall/storm.");
+				.asList("Snow removal at a TTC bus/streetcar stop. 72 hours after a snowfall.",
+						"Snow removal on a City walkway. 72 hours after a snowfall.",
+						"Snow removal on apedestrian portion of a City bridge. 72 hours after a snowfall.",
+						"Clearing of a snow pile that is blocking traffic, sightlines, and buses.",
+						"Request snow ploughing on a City sidewalk. 72 hours after a snowfall.");
 
 		map.put(GRAFFITI, sidewalkGraffiti);
 		map.put(LITTER, sidewalkLitter);
@@ -115,17 +115,17 @@ public class ActionCategoryType {
 
 		List<String> roadGraffiti = Arrays.asList("Report graffiti on a City road, sidewalk, or bridge.");
 		List<String> roadLitter = Arrays
-				.asList("Report loose litter on a sidewalk or boulevard to be picked up by the City.");
+				.asList("Report loose litter on a sidewalk or boulevard.");
 		List<String> roadDamage = Arrays
-				.asList("Report minor pothole damage. If this represents a significant safety risk, please call 311.",
-						"Report minor road damage. If this represents a significant safety risk, please call 311.",
-						"Report damage to a road, boulevard, or sidewalk that was caused by a City or City-contracted snow plough.");
+				.asList("Report minor pothole damage. Call 311 for significant safety risks.",
+						"Report minor road damage. Call 311 for significant safety risks.",
+						"Report damage to a road, or sidewalk that was caused by a snow plough.");
 		List<String> roadMissing = Arrays
-				.asList("Report a missing or damaged City street sign. If this is about a 'Stop' sign or represents a significant safety risk, please call 311.",
-						"Report missing or faded road markings such as lane lines, stop lines, and crosswalks. If this represents a significant safety risk, please call 311.");
+				.asList("Report a missing or damaged City street sign.",
+						"Report missing or faded road markings such as lane lines, stop lines, and crosswalks.");
 		List<String> roadCleaning = Arrays
-				.asList("Request clean-up of spilled construction material, dirt, or mud on a City road (not litter). If this represents a significant safety risk, please call 311.",
-						"Request clean-up of a catch basin (surface covered with leaves or other material) on a City road or boulevard. If this represents a significant safety risk, please call 311.");
+				.asList("Request clean-up of spilled construction material, dirt, or mud on a City road.",
+						"Request clean-up of a catch basin on a City road or boulevard.");
 
 		map.put(GRAFFITI, roadGraffiti);
 		map.put(LITTER, roadLitter);
@@ -140,10 +140,11 @@ public class ActionCategoryType {
 		HashMap<String, List<String>> map = new HashMap<String, List<String>>();
 
 		List<String> citypropertyGraffiti = Arrays
-				.asList("Report graffiti on a street litter bin maintained by the City. For litter bins maintained by Astral Media (i.e. bins with foot pedal) or any bin in a City park, please call 311.");
+				.asList("Report graffiti on a street litter bin maintained by the City.");
 		List<String> citypropertyLitter = Arrays.asList("Overflowing litter bin.");
 		List<String> citypropertyDamage = Arrays.asList("Report a damaged fire hydrant for repair by the City.",
-				"Report a leaking fire hydrant for repair by the City.", "Request removal of a dead/dying City tree.");
+				"Report a leaking fire hydrant for repair by the City.", 
+				"Request removal of a dead/dying City tree.");
 
 		map.put(GRAFFITI, citypropertyGraffiti);
 		map.put(LITTER, citypropertyLitter);

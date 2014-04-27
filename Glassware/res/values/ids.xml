@@ -4,6 +4,7 @@
     <!-- MainActionView -->
     <item name="mainActionView_title" type="id"/>
     <item name="mainActionView_subtitle" type="id"/>
+    <item name="mainActionView_image" type="id"/>
 
     <!-- Activity Service Request Category -->
     <item name="serviceRequestActivity_actionTitle" type="id"/>

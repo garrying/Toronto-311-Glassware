@@ -6,20 +6,22 @@
     <item name="mainActionView_subtitle" type="id"/>
     <item name="mainActionView_image" type="id"/>
 
-    <!-- Activity Service Request Category -->
-    <item name="serviceRequestActivity_actionTitle" type="id"/>
-    <item name="serviceRequestActivity_categoryList" type="id"/>
+    <!-- CategoryView -->
+    <item name="categoryView_image" type="id"/>
+    <item name="categoryView_title" type="id"/>
+    <item name="categoryView_subtitle" type="id"/>
+    
     <!-- RowView -->
     <item name="categoryRowView_image" type="id"/>
     <item name="categoryRowView_title" type="id"/>
 
-    <item name="VerificationView_image" type="id"/>
-    <item name="VerificationView_textContainer" type="id"/>
-    <item name="VerificationView_footer" type="id"/>
-    <item name="VerificationView_descriptionOne" type="id"/>
-    <item name="VerificationView_descriptionTwo" type="id"/>
-    <item name="VerificationView_descriptionThree" type="id"/>
-    <item name="VerificationView_descriptionFour" type="id"/>
+    <item name="verificationView_image" type="id"/>
+    <item name="verificationView_textContainer" type="id"/>
+    <item name="verificationView_footer" type="id"/>
+    <item name="verificationView_descriptionOne" type="id"/>
+    <item name="verificationView_descriptionTwo" type="id"/>
+    <item name="verificationView_descriptionThree" type="id"/>
+    <item name="verificationView_descriptionFour" type="id"/>
 
     
 </resources>

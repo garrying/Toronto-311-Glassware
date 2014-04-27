@@ -20,7 +20,7 @@ public class VerificationActivity extends Activity {
 
 		setContentView(R.layout.activity_verification);
 		
-		TextView serviceType = (TextView) findViewById(R.id.VerificationView_descriptionOne);
+		TextView serviceType = (TextView) findViewById(R.id.verificationView_descriptionOne);
 		serviceType.setText("Service Type: "); //add in value
 		
 		

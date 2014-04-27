@@ -33,6 +33,7 @@
                 android:id="@id/verificationView_categoryIcon"
                 android:layout_width="40px"
                 android:layout_height="40px"
+                android:layout_marginleft="20px"
                 android:src="@drawable/ic_launcher" />
         </LinearLayout>
 
@@ -41,13 +42,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30px"
+            android:textSize="40px"
             android:text="Sidewalk - Graffiti" />
 
         <TextView
             android:id="@id/verificationView_location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30px" />
+            android:layout_marginTop="30px"
+            android:textSize="40px"
+            android:lines="3"	
+            android:text="Which searches all the free resources such as Google and Whitepages to bring back free" />
 
         <TextView
             android:layout_width="match_parent"

@@ -17,5 +17,14 @@
     <string name="mainActionViewTitle_myIssue">My Issue</string>
     <string name="mainActionViewSubtitle_myIssue">This is a description of my issue</string>
     
+    <!-- Category Name -->
+    <string name="categoryCleaning">Cleaning</string>
+    <string name="categoryDamage">Damage</string>
+    <string name="categoryGraffiti">Graffiti</string>
+    <string name="categoryLitter">Litter</string>
+    <string name="categoryMaintanence">Maintanence</string>
+    <string name="categoryMissing">Missing</string>
+    <string name="categoryTiming">Timing</string>
+    
 </resources>
  

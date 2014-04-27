@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- MainActionView -->
     <item name="mainActionView_title" type="id"/>
     <item name="mainActionView_subtitle" type="id"/>
+    
+    <!-- Activity Service Request Category -->
+    <item name="serviceRequestActivity_actionTitle" type="id"/>
+    <item name="serviceRequestActivity_categoryList" type="id"/>
+    <!-- RowView -->
+    <item name="categoryRowView_image" type="id"/>
+    <item name="categoryRowView_title" type="id"/>
 
+    
 </resources>

@@ -14,8 +14,18 @@
         <item name="android:gravity">center_vertical</item>
     </style>
 
+    <style name="RowStyle">
+        <item name="android:padding">10px</item>
+    </style>
+    
+    <!-- Text Style -->
+    
     <style name="StandardTextStyle">
         <item name="android:textColor">@android:color/white</item>
+    </style>
+    
+    <style name="RowTextStyle" parent="@style/StandardTextStyle">
+        <item name="android:textSize">30px</item>
     </style>
 
     <style name="TitleStyle" parent="@style/StandardTextStyle">
@@ -26,5 +36,7 @@
         <item name="android:textColor">@android:color/darker_gray</item>
         <item name="android:textSize">35px</item>
     </style>
+    
+    
 
 </resources>

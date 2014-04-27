@@ -4,21 +4,23 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.gghackthonv2.toronto_311_glassware.R;
 import com.gghackthonv2.view.MainActionView;
 import com.gghackthonv2.view.MainActionView.MainActionType;
-import com.google.android.glass.media.Sounds;
 import com.google.android.glass.widget.CardScrollAdapter;
 import com.google.android.glass.widget.CardScrollView;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 
 public class MainActivity extends Activity {
+
+	public static final String EXTRA_SELECT_ACTION_TYPE = "extra_select_action_type";
+	public static final String EXTRA_SELECT_ACTION_NAME = "extra_select_action_name";
 
 	// Predefine MainAction Object
 	private final List<MainActionType> mainActions = Arrays.asList(MainActionType.SIDEWALK, MainActionType.ROAD,
@@ -87,25 +89,35 @@ public class MainActivity extends Activity {
 		Intent intent;
 
 		switch (type) {
-			case SIDEWALK:
-	
-			case ROAD:
-	
-			case CITY_PROPERTY:
-	
-				break;
-			case NOISE:
-				
-				break;
-			case CONTACT:
-	
-				break;
-			case MY_ISSUES:
-	
-				break;
-			default:
-				// Something is wrong
-				return;
+		case SIDEWALK:
+			intent = new Intent(this, ServiceRequestCategoryActivity.class);
+			intent.putExtra(EXTRA_SELECT_ACTION_TYPE, type);
+			intent.putExtra(EXTRA_SELECT_ACTION_NAME, getString(R.string.mainActionViewTitle_sidewalk));
+			startActivity(intent);
+			break;
+		case ROAD:
+			intent = new Intent(this, ServiceRequestCategoryActivity.class);
+			intent.putExtra(EXTRA_SELECT_ACTION_TYPE, type);
+			intent.putExtra(EXTRA_SELECT_ACTION_NAME, getString(R.string.mainActionViewTitle_road));
+			startActivity(intent);
+		case CITY_PROPERTY:
+			intent = new Intent(this, ServiceRequestCategoryActivity.class);
+			intent.putExtra(EXTRA_SELECT_ACTION_TYPE, type);
+			intent.putExtra(EXTRA_SELECT_ACTION_NAME, getString(R.string.mainActionViewTitle_cityProperty));
+			startActivity(intent);
+			break;
+		case NOISE:
+
+			break;
+		case CONTACT:
+
+			break;
+		case MY_ISSUES:
+
+			break;
+		default:
+			// Something is wrong
+			return;
 		}
 	}
 }

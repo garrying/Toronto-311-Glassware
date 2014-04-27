@@ -42,4 +42,9 @@
         <item name="android:textSize">30px</item>
     </style>
 
+    <style name="footer">
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:textSize">25px</item>
+    </style>
+
 </resources>

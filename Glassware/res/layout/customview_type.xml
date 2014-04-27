@@ -27,17 +27,21 @@
 
     <TextView
         android:id="@id/typeView_title"
+        android:textSize="40px"
+        android:textColor="@android:color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="30px"
         android:lines="3"
         android:text="This is max 3 lines long This is max 3 lines long This is max 3 lines long This is max 3 lines long This is max 3 lines long" />
 
     <TextView
-        style="@style/SubtitleStyle"
+        style="@style/footer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20px"
         android:text="( Tap to Report )" />
 
 </LinearLayout>

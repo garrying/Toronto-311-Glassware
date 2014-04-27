@@ -27,6 +27,8 @@ public class ServiceRequestTypeActivity extends Activity {
 	public static final String EXTRA_SERVICE_REQUEST_CATEGORY = "extra_service_request_category";
 	public static final String EXTRA_SERVICE_REQUEST_TYPE = "extra_service_request_type";
 	public static final String EXTRA_SERVICE_REQUEST_PICTURE_URL = "extra_service_request_picture_url";
+	public static final String EXTRA_CATEGORY_ICON = "extra_category_icon";
+	public static final String EXTRA_MAIN_ACTION_ICON = "extra_main_action_icon";
 	
 	private static final int TAKE_PICTURE_REQUEST = 1;
 	
@@ -77,6 +79,8 @@ public class ServiceRequestTypeActivity extends Activity {
 		verificationIntent = new Intent (this, VerificationActivity.class);
 		verificationIntent.putExtra(EXTRA_SERVICE_REQUEST_ACTION, action);
 		verificationIntent.putExtra(EXTRA_SERVICE_REQUEST_CATEGORY, category);
+		verificationIntent.putExtra(EXTRA_MAIN_ACTION_ICON, mMainActionIcon);
+		verificationIntent.putExtra(EXTRA_CATEGORY_ICON, mCategoryIcon);
 		
 		CardScrollViewAdapter adapter = new CardScrollViewAdapter();
 
@@ -126,6 +130,7 @@ public class ServiceRequestTypeActivity extends Activity {
 	        Log.i("ServiceRequestTypeActivity", "Picture path : " + picturePath);
 	        
 	        verificationIntent.putExtra(EXTRA_SERVICE_REQUEST_PICTURE_URL, picturePath);
+	        
 	        startActivity(verificationIntent);
 	    }
 

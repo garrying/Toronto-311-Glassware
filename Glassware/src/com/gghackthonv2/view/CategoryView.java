@@ -26,7 +26,6 @@ public class CategoryView extends LinearLayout {
 		int iconID = getResources().getIdentifier(mainActionIcon , "drawable", context.getPackageName());
 		mMainActionIconIV.setImageResource(iconID);
 		
-		
 		mSubtitleTV.setText("this is the subtitle");
 	}
 	

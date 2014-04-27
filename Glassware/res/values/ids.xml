@@ -20,11 +20,13 @@
     <item name="categoryRowView_image" type="id"/>
     <item name="categoryRowView_title" type="id"/>
 
-    <item name="verificationView_image" type="id"/>
-    <item name="verificationView_textContainer" type="id"/>
-    <item name="verificationView_footer" type="id"/>
-    <item name="verificationView_descriptionOne" type="id"/>
-    <item name="verificationView_descriptionTwo" type="id"/>
+    <!-- VerificationView -->
+    <item name="verificationView_reportImage" type="id"/>
+    <item name="verificationView_actionIcon" type="id"/>
+    <item name="verificationView_categoryIcon" type="id"/>
+    <item name="verificationView_title" type="id"/>
+    <item name="verificationView_location" type="id"/>
+    
     <item name="verificationView_descriptionThree" type="id"/>
     <item name="verificationView_descriptionFour" type="id"/>
 

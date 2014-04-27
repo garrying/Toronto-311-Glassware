@@ -19,6 +19,9 @@ import android.widget.AdapterView;
 
 public class ServiceRequestCategoryActivity extends Activity {
 
+	public static final String EXTRA_SELECTED_ACTION = "extra_selected_action";
+	public static final String EXTRA_SELECTED_CATEGORY = "extra_selected_category";
+	
 	private class CardScrollViewAdapter extends CardScrollAdapter {
 
 		@Override
@@ -43,8 +46,8 @@ public class ServiceRequestCategoryActivity extends Activity {
 	}
 
 	private ArrayList<Category> mCategories;
-	private MainActionType mainActionType;
-	private String mainActionIcon;
+	private MainActionType mMainActionType;
+	private String mMainActionIcon;
 	private List<CategoryView> mCategoryViews;
 
 	@Override
@@ -52,12 +55,13 @@ public class ServiceRequestCategoryActivity extends Activity {
 		super.onCreate(savedInstanceState);
 
 		Intent intent = getIntent();
-		mainActionType = (MainActionType) intent.getSerializableExtra(MainActivity.EXTRA_SELECT_ACTION_TYPE);
-		mainActionIcon = (String) intent.getSerializableExtra(MainActivity.EXTRA_MAIN_ACTION_ICON);
+		
+		mMainActionType = (MainActionType) intent.getSerializableExtra(MainActivity.EXTRA_SELECT_ACTION_TYPE);
+		mMainActionIcon = (String) intent.getSerializableExtra(MainActivity.EXTRA_MAIN_ACTION_ICON);
 		
 		//String name = intent.getStringExtra(MainActivity.EXTRA_SELECT_ACTION_NAME);
 
-		mCategories = CategoryList.getCategories(mainActionType);
+		mCategories = CategoryList.getCategories(mMainActionType);
 		createActionViews(mCategories);
 
 		CardScrollViewAdapter adapter = new CardScrollViewAdapter();
@@ -70,8 +74,7 @@ public class ServiceRequestCategoryActivity extends Activity {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				Category category = mCategories.get(position);
-				selectedOption(category);
+				selectedOption(position);
 			}
 		});
 
@@ -82,39 +85,18 @@ public class ServiceRequestCategoryActivity extends Activity {
 	private void createActionViews(ArrayList<Category> categories) {
 		mCategoryViews = new ArrayList<CategoryView>();
 		for (Category category : categories) {
-			CategoryView categoryView = new CategoryView(this, category, mainActionType, mainActionIcon);
+			CategoryView categoryView = new CategoryView(this, category, mMainActionType, mMainActionIcon);
 			mCategoryViews.add(categoryView);
 		}
 	}
 
-	private void selectedOption(Category category) {
-		Intent intent;
-
-		switch (category) {
-		case CLEANING:
-
-			break;
-		case DAMAGE:
-
-			break;
-		case GRAFFITI:
-
-			break;
-		case LITTER:
-
-			break;
-		case MAINTANENCE:
-
-			break;
-		case MISSING:
-
-			break;
-		case TIMING:
-
-			break;
-		default:
-			// Something is wrong
-			return;
-		}
+	private void selectedOption(int position) {
+		Intent intent = new Intent(this, ServiceRequestTypeActivity.class);
+		intent.putExtra(EXTRA_SELECTED_ACTION, mMainActionType);
+		
+		Category category = mCategories.get(position);
+		intent.putExtra(EXTRA_SELECTED_CATEGORY, category);
+		
+		startActivity(intent);
 	}
 }

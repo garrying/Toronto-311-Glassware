@@ -11,6 +11,9 @@
     <item name="categoryView_subtitle" type="id"/>
     <item name="categoryView_mainActionIcon" type="id"/>
     
+    <!-- TypeView -->
+    <item name="typeView_title" type="id"/>
+    
     <!-- RowView -->
     <item name="categoryRowView_image" type="id"/>
     <item name="categoryRowView_title" type="id"/>

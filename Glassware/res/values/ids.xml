@@ -13,6 +13,8 @@
     
     <!-- TypeView -->
     <item name="typeView_title" type="id"/>
+    <item name="typeView_categoryIcon" type="id"/>
+    <item name="typeView_mainActionIcon" type="id"/>
     
     <!-- RowView -->
     <item name="categoryRowView_image" type="id"/>

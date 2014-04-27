@@ -57,6 +57,9 @@ public class ServiceRequestTypeActivity extends Activity {
 
 	private List<String> mTypeList;
 	private List<TypeView> mTypeViews;
+	private String mMainActionIcon;
+	private String mCategoryIcon;
+	
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -64,6 +67,8 @@ public class ServiceRequestTypeActivity extends Activity {
 		Intent intent = getIntent();
 		MainActionType action = (MainActionType) intent.getSerializableExtra(ServiceRequestCategoryActivity.EXTRA_SELECTED_ACTION);
 		Category category = (Category) intent.getSerializableExtra(ServiceRequestCategoryActivity.EXTRA_SELECTED_CATEGORY);
+		mMainActionIcon = (String) intent.getSerializableExtra(ServiceRequestCategoryActivity.EXTRA_MAIN_ACTION_ICON);
+		mCategoryIcon = (String) intent.getSerializableExtra(ServiceRequestCategoryActivity.EXTRA_CATEGORY_ICON);
 		
 		ActionCategoryType actionCategoryType = new ActionCategoryType();
 		mTypeList = actionCategoryType.getTypeList(action, category);
@@ -93,7 +98,7 @@ public class ServiceRequestTypeActivity extends Activity {
 	private void createActionViews(List<String> types) {
 		mTypeViews = new ArrayList<TypeView>();
 		for (String type : types) {
-			TypeView typeView = new TypeView(this, type);
+			TypeView typeView = new TypeView(this, type, mMainActionIcon, mCategoryIcon);
 			mTypeViews.add(typeView);
 		}
 	}

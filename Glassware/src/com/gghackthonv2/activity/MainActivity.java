@@ -100,6 +100,7 @@ public class MainActivity extends Activity {
 			intent.putExtra(EXTRA_SELECT_ACTION_TYPE, type);
 			intent.putExtra(EXTRA_SELECT_ACTION_NAME, getString(R.string.mainActionViewTitle_road));
 			startActivity(intent);
+			break;
 		case CITY_PROPERTY:
 			intent = new Intent(this, ServiceRequestCategoryActivity.class);
 			intent.putExtra(EXTRA_SELECT_ACTION_TYPE, type);

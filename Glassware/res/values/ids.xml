@@ -22,5 +22,10 @@
     <item name="verificationView_descriptionThree" type="id"/>
     <item name="verificationView_descriptionFour" type="id"/>
 
+    <item name="contactView_action" type="id"/>
+    <item name="contactView_callToAction" type="id"/>
+    <item name="contactView_email" type="id"/>
+    <item name="contactView_fax" type="id"/>
+    <item name="contactView_twitter" type="id"/>
     
 </resources>

@@ -33,7 +33,7 @@
                 android:id="@id/verificationView_categoryIcon"
                 android:layout_width="40px"
                 android:layout_height="40px"
-                android:layout_marginleft="20px"
+                android:layout_marginLeft="20px"
                 android:src="@drawable/ic_launcher" />
         </LinearLayout>
 

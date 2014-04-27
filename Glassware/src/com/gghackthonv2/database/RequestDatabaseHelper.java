@@ -15,11 +15,17 @@ public class RequestDatabaseHelper extends SQLiteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase database) {
-		ServiceResponseTable.onCreate(database);
+		//ResponsedServiceTable.onCreate(database);
+		ServiceRequestActionTable.onCreate(database);
+		ServiceRequestCategoryTable.onCreate(database);
+		ServiceRequestTypeTable.onCreate(database);
 	}
 
 	@Override
 	public void onUpgrade(SQLiteDatabase database, int oldVersion, int newVersion) {
-		ServiceResponseTable.onUpgrade(database, oldVersion, newVersion);
+		//ResponsedServiceTable.onUpgrade(database, oldVersion, newVersion);
+		ServiceRequestActionTable.onUpgrade(database, oldVersion, newVersion);
+		ServiceRequestCategoryTable.onUpgrade(database, oldVersion, newVersion);
+		ServiceRequestTypeTable.onUpgrade(database, oldVersion, newVersion);
 	}
 }

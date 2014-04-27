@@ -27,49 +27,54 @@ public class ActionCategoryType {
 		actionCategoryTypeDictionary.put(CITY_PROPERTY, createCityPropertyDictionary());
 	}
 	
-	// uncomplete
 	public HashMap<String, List<String>> createSidewalkDictionary(){
 		HashMap<String, List<String>> map = new HashMap<String, List<String>>();
 		
-		List<String> sidewalkGraffiti = Arrays.asList("option a", "option b");
-		List<String> sidewalkLittle = Arrays.asList("Report loose litter on a sidewalk or boulevard to be picked up by the City.");
+		List<String> sidewalkGraffiti = Arrays.asList("Graffiti on a City road, sidewalk, or bridge Report graffiti on a City road, sidewalk, or bridge.");
+		List<String> sidewalkLitter = Arrays.asList("Report loose litter on a sidewalk or boulevard to be picked up by the City.");
 		List<String> sidewalkDamage = Arrays.asList("Report minor sidewalk damage. If this represents a significant safety risk, please call 311.");
+		List<String> sidewalkTiming = Arrays.asList("Report a pedestrian signal timing issue. If this is a another type of traffic signal issue or represents a significant safety risk, please call 311.");
+		List<String> sidewalkMaintanence = Arrays.asList("Request snow ploughing or sanding/salting at a TTC bus/streetcar stop. Please wait until at least 72 hours after a snowfall/storm.","Request snow ploughing or sanding/salting on a City walkway. Please wait until at least 72 hours after a snowfall/storm.","Request sanding/salting on the pedestrian portion of a City bridge. Please wait until at least 72 hours after a snowfall/storm.","Request clearing of a snow pile that is blocking traffic flow/sightlines, on a boulevard, or in a school bus loading zone.","Request snow ploughing or sanding/salting on a City sidewalk. Please wait until at least 72 hours after a snowfall/storm.");
 		
 		map.put(GRAFFITI, sidewalkGraffiti);
-		map.put(LITTER, sidewalkLittle);
+		map.put(LITTER, sidewalkLitter);
 		map.put(DAMAGE, sidewalkDamage);
+		map.put(TIMING, sidewalkTiming);
+		map.put(MAINTANENCE, sidewalkMaintanence);
 		
 		return map;
 	}
 	
-	// uncomplete
 	public HashMap<String, List<String>> createRoadDictionary(){
 		HashMap<String, List<String>> map = new HashMap<String, List<String>>();
 		
-		List<String> sidewalkGraffiti = Arrays.asList("option a", "option b");
-		List<String> sidewalkLittle = Arrays.asList("Report loose litter on a sidewalk or boulevard to be picked up by the City.");
-		List<String> sidewalkDamage = Arrays.asList("Report minor sidewalk damage. If this represents a significant safety risk, please call 311.");
-		
-		map.put(GRAFFITI, sidewalkGraffiti);
-		map.put(LITTER, sidewalkLittle);
-		map.put(DAMAGE, sidewalkDamage);
+		List<String> roadGraffiti = Arrays.asList("Report graffiti on a City road, sidewalk, or bridge.");
+		List<String> roadLitter = Arrays.asList("Report loose litter on a sidewalk or boulevard to be picked up by the City.");
+		List<String> roadDamage = Arrays.asList("Report minor pothole damage. If this represents a significant safety risk, please call 311.","Report minor road damage. If this represents a significant safety risk, please call 311.","Report damage to a road, boulevard, or sidewalk that was caused by a City or City-contracted snow plough.");
+		List<String> roadMissing = Arrays.asList("Report a missing or damaged City street sign. If this is about a 'Stop' sign or represents a significant safety risk, please call 311.","Report missing or faded road markings such as lane lines, stop lines, and crosswalks. If this represents a significant safety risk, please call 311.");
+		List<String> roadCleaning = Arrays.asList("Request clean-up of spilled construction material, dirt, or mud on a City road (not litter). If this represents a significant safety risk, please call 311.","Request clean-up of a catch basin (surface covered with leaves or other material) on a City road or boulevard. If this represents a significant safety risk, please call 311.");
+
+		map.put(GRAFFITI, roadGraffiti);
+		map.put(LITTER, roadLitter);
+		map.put(DAMAGE, roadDamage);
+		map.put(MISSING, roadMissing);
+		map.put(CLEANING, roadCleaning);
 		
 		return map;
 	}
 
-	// This is done but plz check
 	public HashMap<String, List<String>> createCityPropertyDictionary(){
 		HashMap<String, List<String>> map = new HashMap<String, List<String>>();
 		
-		List<String> citypropertyGraffit = Arrays.asList("Report graffiti on a street litter bin maintained by the City. For litter bins maintained by Astral Media (i.e. bins with foot pedal) or any bin in a City park, please call 311.");
-		List<String> citypropertyLittle = Arrays.asList("Overflowing litter bin.");
+		List<String> citypropertyGraffiti = Arrays.asList("Report graffiti on a street litter bin maintained by the City. For litter bins maintained by Astral Media (i.e. bins with foot pedal) or any bin in a City park, please call 311.");
+		List<String> citypropertyLitter = Arrays.asList("Overflowing litter bin.");
 		List<String> citypropertyDamage = Arrays.asList(
 				"Report a damaged fire hydrant for repair by the City.", 
 				"Report a leaking fire hydrant for repair by the City.", 
 				"Request removal of a dead/dying City tree.");
 		
-		map.put(GRAFFITI, citypropertyGraffit);
-		map.put(LITTER, citypropertyLittle);
+		map.put(GRAFFITI, citypropertyGraffiti);
+		map.put(LITTER, citypropertyLitter);
 		map.put(DAMAGE, citypropertyDamage);
 		
 		return map;

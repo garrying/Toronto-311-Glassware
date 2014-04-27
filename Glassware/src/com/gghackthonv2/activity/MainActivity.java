@@ -82,7 +82,6 @@ public class MainActivity extends Activity {
 			MainActionView mainActionView = new MainActionView(this, mainAction);
 			mActionViews.add(mainActionView);
 		}
-
 	}
 
 	private void selectedOption(MainActionType type) {

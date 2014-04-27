@@ -8,15 +8,17 @@ import com.gghackthonv2.view.MainActionView.MainActionType;
 public class CategoryList {
 
 	public enum Category {
-		CLEANING(R.drawable.ic_launcher, R.string.categoryCleaning), DAMAGE(R.drawable.ic_launcher,
-				R.string.categoryDamage), GRAFFITI(R.drawable.ic_launcher, R.string.categoryGraffiti), LITTER(
-				R.drawable.ic_launcher, R.string.categoryLitter), MAINTANENCE(R.drawable.ic_launcher,
-				R.string.categoryMaintanence), MISSING(R.drawable.ic_launcher, R.string.categoryMissing), TIMING(
-				R.drawable.ic_launcher, R.string.categoryTiming);
+		CLEANING(R.drawable.cleaning_2, R.string.categoryCleaning), 
+		DAMAGE(R.drawable.broken_2, R.string.categoryDamage), 
+		GRAFFITI(R.drawable.graffiti_2, R.string.categoryGraffiti), 
+		LITTER(R.drawable.litter_2, R.string.categoryLitter), 
+		MAINTANENCE(R.drawable.maintenance_2, R.string.categoryMaintanence), 
+		MISSING(R.drawable.missing_2, R.string.categoryMissing), 
+		TIMING(R.drawable.timing_2, R.string.categoryTiming);
 
 		private final int iconId;
 		private final int nameId;
-
+ 
 		private Category(int iconId, int nameId) {
 			this.iconId = iconId;
 			this.nameId = nameId;

@@ -13,7 +13,7 @@
         android:layout_marginRight="10px"
         android:contentDescription="Cateogory Image"
         android:src="@drawable/ic_launcher" />
-
+    
     <TextView
         android:id="@id/categoryRowView_title"
         style="@style/RowTextStyle"

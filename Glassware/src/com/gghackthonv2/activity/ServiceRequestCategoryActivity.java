@@ -1,42 +1,119 @@
 package com.gghackthonv2.activity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.gghackthonv2.helper.CategoryList;
 import com.gghackthonv2.helper.CategoryList.Category;
-import com.gghackthonv2.helper.CategoryListAdapter;
-import com.gghackthonv2.toronto_311_glassware.R;
+import com.gghackthonv2.view.CategoryView;
 import com.gghackthonv2.view.MainActionView.MainActionType;
+import com.google.android.glass.widget.CardScrollAdapter;
+import com.google.android.glass.widget.CardScrollView;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ListView;
-import android.widget.TextView;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 
 public class ServiceRequestCategoryActivity extends Activity {
+
+	private class CardScrollViewAdapter extends CardScrollAdapter {
+
+		@Override
+		public int getCount() {
+			return mCategoryViews.size();
+		}
+
+		@Override
+		public Object getItem(int position) {
+			return mCategoryViews.get(position);
+		}
+
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			return mCategoryViews.get(position);
+		}
+
+		@Override
+		public int getPosition(Object item) {
+			return mCategoryViews.indexOf(item);
+		}
+	}
+
+	private ArrayList<Category> mCategories;
+	private List<CategoryView> mCategoryViews;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+
 		Intent intent = getIntent();
-		//MainActionType type = intent.getParcelableExtra(MainActivity.EXTRA_SELECT_ACTION_TYPE);
-		
+		// MainActionType type =
+		// intent.getParcelableExtra(MainActivity.EXTRA_SELECT_ACTION_TYPE);
 		MainActionType type = MainActionType.SIDEWALK;
+
 		String name = intent.getStringExtra(MainActivity.EXTRA_SELECT_ACTION_NAME);
-		
-		ArrayList<Category> categories = CategoryList.getCategories(type);
-		
-		CategoryListAdapter categoryListAdapter = new CategoryListAdapter(this, R.layout.rowview_category, categories);
-	
-		setContentView(R.layout.activity_servicerequestcategory);
 
-		TextView routeTitleTV = (TextView) findViewById(R.id.serviceRequestActivity_actionTitle);
-		routeTitleTV.setText(name);
+		mCategories = CategoryList.getCategories(type);
+		createActionViews(mCategories);
 
-		ListView routeListView = (ListView) findViewById(R.id.serviceRequestActivity_categoryList);
-		routeListView.setAdapter(categoryListAdapter);
+		CardScrollViewAdapter adapter = new CardScrollViewAdapter();
+
+		CardScrollView cardScrollView = new CardScrollView(this);
+		cardScrollView.setHorizontalScrollBarEnabled(true);
+		cardScrollView.setAdapter(adapter);
+		cardScrollView.activate();
+		cardScrollView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				Category category = mCategories.get(position);
+				selectedOption(category);
+			}
+		});
+
+		// set the view of this activity
+		setContentView(cardScrollView);
 	}
-	
+
+	private void createActionViews(ArrayList<Category> categories) {
+		mCategoryViews = new ArrayList<CategoryView>();
+		for (Category category : categories) {
+			CategoryView categoryView = new CategoryView(this, category);
+			mCategoryViews.add(categoryView);
+		}
+	}
+
+	private void selectedOption(Category category) {
+		Intent intent;
+
+		switch (category) {
+		case CLEANING:
+
+			break;
+		case DAMAGE:
+
+			break;
+		case GRAFFITI:
+
+			break;
+		case LITTER:
+
+			break;
+		case MAINTANENCE:
+
+			break;
+		case MISSING:
+
+			break;
+		case TIMING:
+
+			break;
+		default:
+			// Something is wrong
+			return;
+		}
+	}
 }

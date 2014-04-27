@@ -12,7 +12,7 @@ import android.widget.TextView;
 public class CategoryView extends LinearLayout {
 
 	private TextView mTitleTV;
-	//private TextView mSubtitleTV;
+	private TextView mSubtitleTV;
 	
 	public CategoryView (Context context, Category category) {
 		this(context, null, 0);
@@ -20,7 +20,7 @@ public class CategoryView extends LinearLayout {
 		mTitleTV.setText(getResources().getString(category.getNameId()));
 		mTitleTV.setCompoundDrawablesWithIntrinsicBounds(category.getIconId(), 0, 0, 0);
 		
-		//mSubtitleTV.setText("okay");
+		mSubtitleTV.setText("this is the subtitle");
 	}
 	
 	public CategoryView(Context context) {
@@ -39,6 +39,6 @@ public class CategoryView extends LinearLayout {
 		LayoutInflater.from(context).inflate(R.layout.customview_category, this);
 
 		mTitleTV = (TextView) findViewById(R.id.categoryView_title);
-		//mSubtitleTV = (TextView) findViewById(R.id.categoryView_subtitle);
+		mSubtitleTV = (TextView) findViewById(R.id.categoryView_subtitle);
 	}	
 }

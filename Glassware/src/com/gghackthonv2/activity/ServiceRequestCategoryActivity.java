@@ -50,11 +50,9 @@ public class ServiceRequestCategoryActivity extends Activity {
 		super.onCreate(savedInstanceState);
 
 		Intent intent = getIntent();
-		// MainActionType type =
-		// intent.getParcelableExtra(MainActivity.EXTRA_SELECT_ACTION_TYPE);
-		MainActionType type = MainActionType.SIDEWALK;
-
-		String name = intent.getStringExtra(MainActivity.EXTRA_SELECT_ACTION_NAME);
+		MainActionType type = (MainActionType) intent.getSerializableExtra(MainActivity.EXTRA_SELECT_ACTION_TYPE);
+		
+		//String name = intent.getStringExtra(MainActivity.EXTRA_SELECT_ACTION_NAME);
 
 		mCategories = CategoryList.getCategories(type);
 		createActionViews(mCategories);

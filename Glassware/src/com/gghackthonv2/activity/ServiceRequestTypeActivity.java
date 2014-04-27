@@ -7,18 +7,29 @@ import com.gghackthonv2.helper.CategoryList.Category;
 import com.gghackthonv2.model.ActionCategoryType;
 import com.gghackthonv2.view.TypeView;
 import com.gghackthonv2.view.MainActionView.MainActionType;
+import com.google.android.glass.media.CameraManager;
 import com.google.android.glass.widget.CardScrollAdapter;
 import com.google.android.glass.widget.CardScrollView;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 
 public class ServiceRequestTypeActivity extends Activity {
 
+	
+	public static final String EXTRA_SERVICE_REQUEST_ACTION = "extra_service_request_action";
+	public static final String EXTRA_SERVICE_REQUEST_CATEGORY = "extra_service_request_category";
+	public static final String EXTRA_SERVICE_REQUEST_TYPE = "extra_service_request_type";
+	public static final String EXTRA_SERVICE_REQUEST_PICTURE_URL = "extra_service_request_picture_url";
+	
+	private static final int TAKE_PICTURE_REQUEST = 1;
+	
 	private class CardScrollViewAdapter extends CardScrollAdapter {
 
 		@Override
@@ -41,7 +52,10 @@ public class ServiceRequestTypeActivity extends Activity {
 			return mTypeViews.indexOf(item);
 		}
 	}
+	
+	private Intent verificationIntent;
 
+	private List<String> mTypeList;
 	private List<TypeView> mTypeViews;
 	
 	protected void onCreate(Bundle savedInstanceState) {
@@ -52,9 +66,13 @@ public class ServiceRequestTypeActivity extends Activity {
 		Category category = (Category) intent.getSerializableExtra(ServiceRequestCategoryActivity.EXTRA_SELECTED_CATEGORY);
 		
 		ActionCategoryType actionCategoryType = new ActionCategoryType();
-		List<String> typeList = actionCategoryType.getTypeList(action, category);
-		createActionViews(typeList);
-
+		mTypeList = actionCategoryType.getTypeList(action, category);
+		createActionViews(mTypeList);
+		
+		verificationIntent = new Intent (this, VerificationActivity.class);
+		verificationIntent.putExtra(EXTRA_SERVICE_REQUEST_ACTION, action);
+		verificationIntent.putExtra(EXTRA_SERVICE_REQUEST_CATEGORY, category);
+		
 		CardScrollViewAdapter adapter = new CardScrollViewAdapter();
 
 		CardScrollView cardScrollView = new CardScrollView(this);
@@ -79,8 +97,33 @@ public class ServiceRequestTypeActivity extends Activity {
 			mTypeViews.add(typeView);
 		}
 	}
-
+	
 	private void selectedOption(int position) {
+		verificationIntent.putExtra(EXTRA_SERVICE_REQUEST_TYPE, mTypeList.get(position));
+		takePicture();
+	}
+	
+	private void takePicture() {
+	    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+	    startActivityForResult(intent, TAKE_PICTURE_REQUEST);
+	}
+	
+	private void takeVideo() {
+	    Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+	    startActivityForResult(intent, TAKE_PICTURE_REQUEST);
+	}
 
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+	    if (requestCode == TAKE_PICTURE_REQUEST && resultCode == RESULT_OK) {
+	        String picturePath = data.getStringExtra(
+	                CameraManager.EXTRA_PICTURE_FILE_PATH);
+	        Log.i("ServiceRequestTypeActivity", "Picture path : " + picturePath);
+	        
+	        verificationIntent.putExtra(EXTRA_SERVICE_REQUEST_PICTURE_URL, picturePath);
+	        startActivity(verificationIntent);
+	    }
+
+	    super.onActivityResult(requestCode, resultCode, data);
 	}
 }

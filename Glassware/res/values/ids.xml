@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="mainActionView_title" type="id"/>
+    <item name="mainActionView_subtitle" type="id"/>
+    <item name="VerificationView_image" type="id"/>
+    <item name="VerificationView_textContainer" type="id"/>
+    <item name="VerificationView_footer" type="id"/>
+    <item name="VerificationView_descriptionOne" type="id"/>
+    <item name="VerificationView_descriptionTwo" type="id"/>
+    <item name="VerificationView_descriptionThree" type="id"/>
+    <item name="VerificationView_descriptionFour" type="id"/>
+
+</resources>

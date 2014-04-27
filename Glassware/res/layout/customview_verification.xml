@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/CardStyle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@id/VerificationView_image"
+        android:layout_width="240px"
+        android:layout_height="match_parent" >
+
+        <!-- Put widgets for the left column inside this RelativeLayout. -->
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@id/VerificationView_textContainer"
+        android:layout_width="330dp"
+        android:layout_height="240dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="30px"
+        android:layout_toRightOf="@id/VerificationView_image"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@id/VerificationView_descriptionOne"
+            style="@style/SubtitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:text="Service Type: Pothole" />
+
+        <TextView
+            android:id="@id/VerificationView_descriptionTwo"
+            style="@style/SubtitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:text="Location: lat x long" />
+
+        <TextView
+            android:id="@id/VerificationView_descriptionThree"
+            style="@style/SubtitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:text="E-mail:" />
+
+        <TextView
+            android:id="@id/VerificationView_descriptionFour"
+            style="@style/SubtitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:text="new line" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/VerificationView_footer"
+        android:layout_width="330dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/VerificationView_textContainer"
+        android:layout_marginLeft="30px"
+        android:layout_toRightOf="@id/VerificationView_image"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:text="tap to submit..."
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+</RelativeLayout>

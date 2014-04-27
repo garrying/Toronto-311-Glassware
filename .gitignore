@@ -6,8 +6,9 @@
 *.dex
 
 # generated files
-bin/
-gen/
+Glassware/bin/
+Glassware/gen/
 
 # Local configuration file (sdk path, etc)
 local.properties
+Glassware/.settings/org.eclipse.jdt.core.prefs

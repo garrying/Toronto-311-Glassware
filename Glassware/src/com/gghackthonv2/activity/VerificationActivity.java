@@ -1,33 +1,28 @@
 package com.gghackthonv2.activity;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import com.gghackthonv2.toronto_311_glassware.R;
-import com.gghackthonv2.view.MainActionView;
-import com.gghackthonv2.view.MainActionView.MainActionType;
-import com.google.android.glass.media.Sounds;
-import com.google.android.glass.widget.CardScrollAdapter;
-import com.google.android.glass.widget.CardScrollView;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
+import android.widget.TextView;
 
 public class VerificationActivity extends Activity {
-
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.customview_verification);		
-	}
+		Intent intent = getIntent();
+		// Get intent extras for the img and description
+		// intent.getParcelableExtra(MainActivity.EXTRA_SELECT_ACTION_TYPE);
 
+		setContentView(R.layout.activity_verification);
+		
+		TextView serviceType = (TextView) findViewById(R.id.VerificationView_descriptionOne);
+		serviceType.setText("Service Type: "); //add in value
+	}
+	
 
 }

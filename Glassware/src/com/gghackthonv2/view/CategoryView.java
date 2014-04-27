@@ -20,8 +20,6 @@ public class CategoryView extends LinearLayout {
 	public CategoryView (Context context, Category category, MainActionType mainActionType, String mainActionIcon) {
 		this(context, null, 0);
 		
-		
-		
 		mTitleTV.setText(getResources().getString(category.getNameId()));
 		mTitleTV.setCompoundDrawablesWithIntrinsicBounds(category.getIconId(), 0, 0, 0);
 		

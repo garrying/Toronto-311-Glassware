@@ -13,13 +13,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class VerificationActivity extends Activity {
-	
-	private ImageView mReportImageView;
-	private ImageView mReportActionImageView;
-	private ImageView mReportCategoryImageView;
+
+	private ImageView mReportImageIV;
+	private String mMainActionIcon;
+	private String mReportCategoryIcon;
 	private TextView mReportTitleView;
 	private TextView mReportLocationView;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -29,18 +29,30 @@ public class VerificationActivity extends Activity {
 		Category category = (Category) intent.getSerializableExtra(ServiceRequestTypeActivity.EXTRA_SERVICE_REQUEST_CATEGORY);
 		String type = intent.getStringExtra(ServiceRequestTypeActivity.EXTRA_SERVICE_REQUEST_TYPE);
 		String pictureUrl = intent.getStringExtra(ServiceRequestTypeActivity.EXTRA_SERVICE_REQUEST_PICTURE_URL);
+		//ICONS
+		mMainActionIcon = (String) intent.getSerializableExtra(ServiceRequestTypeActivity.EXTRA_MAIN_ACTION_ICON);
+		mReportCategoryIcon = (String) intent.getSerializableExtra(ServiceRequestTypeActivity.EXTRA_CATEGORY_ICON);
+		
+		int actionIconID = getResources().getIdentifier(mMainActionIcon , "drawable", getPackageName());
+		ImageView actionIconIV = (ImageView) findViewById(R.id.verificationView_actionIcon);
+		actionIconIV.setImageResource(actionIconID);
+		
+		int categoryIconID = getResources().getIdentifier(mReportCategoryIcon , "drawable", getPackageName());
+		ImageView categoryIconIV = (ImageView) findViewById(R.id.verificationView_categoryIcon);
+		categoryIconIV.setImageResource(categoryIconID);
+		
 		
 		setContentView(R.layout.activity_verification);
 
-		mReportImageView = (ImageView) findViewById(R.id.verificationView_reportImage);
-		mReportActionImageView = (ImageView) findViewById(R.id.verificationView_actionIcon);
-		mReportCategoryImageView = (ImageView) findViewById(R.id.verificationView_categoryIcon);
-		
+		mReportImageIV = (ImageView) findViewById(R.id.verificationView_reportImage);
+	
 		mReportTitleView = (TextView) findViewById(R.id.verificationView_title);
 		mReportLocationView = (TextView) findViewById(R.id.verificationView_location);
 		
+		
+		
 		if(pictureUrl.length() > 1){
-		    mReportImageView.setImageBitmap(BitmapFactory.decodeFile(pictureUrl));
+			mReportImageIV.setImageBitmap(BitmapFactory.decodeFile(pictureUrl));
 		}
 	}
 }

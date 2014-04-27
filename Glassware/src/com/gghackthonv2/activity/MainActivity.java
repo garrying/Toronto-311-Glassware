@@ -21,6 +21,7 @@ public class MainActivity extends Activity {
 
 	public static final String EXTRA_SELECT_ACTION_TYPE = "extra_select_action_type";
 	public static final String EXTRA_SELECT_ACTION_NAME = "extra_select_action_name";
+	public static final String EXTRA_MAIN_ACTION_ICON = "extra_main_action_icon";
 
 	// Predefine MainAction Object
 	private final List<MainActionType> mainActions = Arrays.asList(MainActionType.SIDEWALK, MainActionType.ROAD,
@@ -92,18 +93,21 @@ public class MainActivity extends Activity {
 			intent = new Intent(this, ServiceRequestCategoryActivity.class);
 			intent.putExtra(EXTRA_SELECT_ACTION_TYPE, type);
 			intent.putExtra(EXTRA_SELECT_ACTION_NAME, getString(R.string.mainActionViewTitle_sidewalk));
+			intent.putExtra(EXTRA_MAIN_ACTION_ICON, "sidewalks_1");
 			startActivity(intent);
 			break;
 		case ROAD:
 			intent = new Intent(this, ServiceRequestCategoryActivity.class);
 			intent.putExtra(EXTRA_SELECT_ACTION_TYPE, type);
 			intent.putExtra(EXTRA_SELECT_ACTION_NAME, getString(R.string.mainActionViewTitle_road));
+			intent.putExtra(EXTRA_MAIN_ACTION_ICON, "road_1");
 			startActivity(intent);
 			break;
 		case CITY_PROPERTY:
 			intent = new Intent(this, ServiceRequestCategoryActivity.class);
 			intent.putExtra(EXTRA_SELECT_ACTION_TYPE, type);
 			intent.putExtra(EXTRA_SELECT_ACTION_NAME, getString(R.string.mainActionViewTitle_cityProperty));
+			intent.putExtra(EXTRA_MAIN_ACTION_ICON, "property_1");
 			startActivity(intent);
 			break;
 		case NOISE:

@@ -43,6 +43,8 @@ public class ServiceRequestCategoryActivity extends Activity {
 	}
 
 	private ArrayList<Category> mCategories;
+	private MainActionType mainActionType;
+	private String mainActionIcon;
 	private List<CategoryView> mCategoryViews;
 
 	@Override
@@ -50,11 +52,12 @@ public class ServiceRequestCategoryActivity extends Activity {
 		super.onCreate(savedInstanceState);
 
 		Intent intent = getIntent();
-		MainActionType type = (MainActionType) intent.getSerializableExtra(MainActivity.EXTRA_SELECT_ACTION_TYPE);
+		mainActionType = (MainActionType) intent.getSerializableExtra(MainActivity.EXTRA_SELECT_ACTION_TYPE);
+		mainActionIcon = (String) intent.getSerializableExtra(MainActivity.EXTRA_MAIN_ACTION_ICON);
 		
 		//String name = intent.getStringExtra(MainActivity.EXTRA_SELECT_ACTION_NAME);
 
-		mCategories = CategoryList.getCategories(type);
+		mCategories = CategoryList.getCategories(mainActionType);
 		createActionViews(mCategories);
 
 		CardScrollViewAdapter adapter = new CardScrollViewAdapter();
@@ -79,7 +82,7 @@ public class ServiceRequestCategoryActivity extends Activity {
 	private void createActionViews(ArrayList<Category> categories) {
 		mCategoryViews = new ArrayList<CategoryView>();
 		for (Category category : categories) {
-			CategoryView categoryView = new CategoryView(this, category);
+			CategoryView categoryView = new CategoryView(this, category, mainActionType, mainActionIcon);
 			mCategoryViews.add(categoryView);
 		}
 	}

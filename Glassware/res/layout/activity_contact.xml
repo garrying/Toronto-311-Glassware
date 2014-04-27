@@ -37,8 +37,9 @@
         style="@style/H3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="E-mail: 311@toronto.ca" />
+        android:drawableLeft="@drawable/email_3"
+        android:gravity="center_vertical"
+        android:text="311@toronto.ca" />
 
     <TextView
         android:id="@id/contactView_twitter"
@@ -47,6 +48,6 @@
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/twitter_3"
         android:gravity="center_vertical"
-        android:text="@311toronto" />
+        android:text="\@311toronto" />
 
 </LinearLayout>

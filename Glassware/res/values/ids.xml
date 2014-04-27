@@ -9,6 +9,7 @@
     <!-- CategoryView -->
     <item name="categoryView_title" type="id"/>
     <item name="categoryView_subtitle" type="id"/>
+    <item name="categoryView_mainActionIcon" type="id"/>
     
     <!-- RowView -->
     <item name="categoryRowView_image" type="id"/>

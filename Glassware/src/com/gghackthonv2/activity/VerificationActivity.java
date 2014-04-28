@@ -9,12 +9,14 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 public class VerificationActivity extends Activity {
 
 	private ImageView mReportImageIV;
+	private ImageView actionIconIV;
 	private String mMainActionIcon;
 	private String mReportCategoryIcon;
 	private TextView mReportTitleView;
@@ -34,7 +36,9 @@ public class VerificationActivity extends Activity {
 		mReportCategoryIcon = (String) intent.getSerializableExtra(ServiceRequestTypeActivity.EXTRA_CATEGORY_ICON);
 		
 		int actionIconID = getResources().getIdentifier(mMainActionIcon , "drawable", getPackageName());
-		ImageView actionIconIV = (ImageView) findViewById(R.id.verificationView_actionIcon);
+		System.out.println(actionIconID);
+		Log.i("error", ""+actionIconID);
+		actionIconIV = (ImageView) findViewById(R.id.verificationView_actionIcon);
 		actionIconIV.setImageResource(actionIconID);
 		
 		int categoryIconID = getResources().getIdentifier(mReportCategoryIcon , "drawable", getPackageName());

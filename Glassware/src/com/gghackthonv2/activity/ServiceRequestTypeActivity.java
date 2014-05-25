@@ -12,6 +12,7 @@ import com.google.android.glass.media.CameraManager;
 import com.google.android.glass.media.Sounds;
 import com.google.android.glass.widget.CardScrollAdapter;
 import com.google.android.glass.widget.CardScrollView;
+import com.google.glass.widget.SliderView;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -22,7 +23,10 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 
 public class ServiceRequestTypeActivity extends Activity {
 
@@ -148,6 +152,19 @@ public class ServiceRequestTypeActivity extends Activity {
 	        // can update your UI to let the user know that the application is
 	        // waiting for the picture (for example, by displaying the thumbnail
 	        // image and a progress indicator).
+	    	    	
+	    	RelativeLayout emptyContainerLayout = new RelativeLayout(this);
+	    	emptyContainerLayout.setLayoutParams(new RelativeLayout.LayoutParams( LayoutParams.MATCH_PARENT , LayoutParams.MATCH_PARENT ));
+
+	    	SliderView sliderView = new SliderView(this);
+	    	sliderView.startIndeterminate();
+	    	
+	    	LayoutParams sliderViewParams = new RelativeLayout.LayoutParams( LayoutParams.WRAP_CONTENT , LayoutParams.WRAP_CONTENT );
+	    	((android.widget.RelativeLayout.LayoutParams) sliderViewParams).addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+	    	sliderView.setLayoutParams(sliderViewParams);
+	    	emptyContainerLayout.addView(sliderView);
+	    	
+	    	addContentView(emptyContainerLayout, new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
 	    	Log.i("service request type activity", "pic is not ready");
 
 	        final File parentDirectory = pictureFile.getParentFile();

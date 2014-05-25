@@ -7,17 +7,17 @@
     
     <!-- Main Action View -->
     <string name="mainActionViewTitle_sidewalk">Sidewalk</string>
-    <string name="mainActionViewSubtitle_sidewalk">This is a description of sidewalk</string>
+    <string name="mainActionViewSubtitle_sidewalk">Minor damage of concrete or brick sidewalks</string>
     <string name="mainActionViewTitle_road">Road</string>
-    <string name="mainActionViewSubtitle_road">This is a description of road</string>
+    <string name="mainActionViewSubtitle_road">Potholes, minor surface damage, and issues with wayfinding</string>
     <string name="mainActionViewTitle_cityProperty">City Property</string>
-    <string name="mainActionViewSubtitle_cityProperty">This is a description of city property</string>
+    <string name="mainActionViewSubtitle_cityProperty">Graffiti, overflowing garbage bins, fire hydrants, and trees</string>
     <string name="mainActionViewTitle_noise">Noise</string>
-    <string name="mainActionViewSubtitle_noise">This is a description of noise</string>
+    <string name="mainActionViewSubtitle_noise">Construction noise in a residential area outside of permitted hours</string>
     <string name="mainActionViewTitle_contact">Contact</string>
-    <string name="mainActionViewSubtitle_contact">This is a description of contact</string>
-    <string name="mainActionViewTitle_myIssue">My Issue</string>
-    <string name="mainActionViewSubtitle_myIssue">This is a description of my issue</string>
+    <string name="mainActionViewSubtitle_contact">Conntecting with 311 Toronto</string>
+    <string name="mainActionViewTitle_myIssue">My Issues</string>
+    <string name="mainActionViewSubtitle_myIssue">Open and resolved submitted issues</string>
     
     <!-- Category Name -->
     <string name="categoryCleaning">Cleaning</string>

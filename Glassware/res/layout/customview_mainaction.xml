@@ -3,28 +3,30 @@
     style="@style/CardStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical" >
 
     <TextView
         android:id="@id/mainActionView_title"
         style="@style/TitleStyle"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_marginTop="30px"
+        android:gravity="center_horizontal"
         android:text="TITLE" />
 
     <TextView
         android:id="@id/mainActionView_subtitle"
         style="@style/SubtitleStyle"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="10px"
         android:text="SUBTITLE" />
 
     <ImageView
         android:id="@id/mainActionView_image"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center" />
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

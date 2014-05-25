@@ -23,16 +23,9 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.gghackthonv2.helper.CategoryList.Category;
 import com.gghackthonv2.toronto_311_glassware.R;
-import com.gghackthonv2.toronto_311_glassware.R.drawable;
-import com.gghackthonv2.toronto_311_glassware.R.string;
 import com.gghackthonv2.view.MainActionView.MainActionType;
 import com.google.android.glass.app.Card;
 import com.google.android.glass.app.Card.ImageLayout;
@@ -133,7 +126,6 @@ public class VerificationActivity extends Activity {
 					if (addresses != null) {
 						Address fetchedAddress = addresses.get(0);
 						addressString = fetchedAddress.getLocality();
-						Log.i("verification", addressString);
 					}
 
 					Date nowDate = new Date(lastKnownLoaction.getTime());

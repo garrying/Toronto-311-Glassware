@@ -3,51 +3,49 @@
     style="@style/CardStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="top"
+    android:gravity="center"
     android:orientation="vertical" >
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@id/contactView_action"
+        style="@style/TitleStyle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:paddingTop="160px" 
-        android:paddingBottom="40px" >
+        android:drawableLeft="@drawable/phone_3"
+        android:text="@string/contactTitle" />
+
+    <TextView
+        android:id="@id/contactView_callToAction"
+        style="@style/H3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/contactCallToAction" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40px"
+        android:orientation="vertical" >
 
         <TextView
-            android:id="@id/contactView_action"
-            style="@style/TitleStyle"
+            android:id="@id/contactView_email"
+            style="@style/H3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/phone_3"
+            android:drawableLeft="@drawable/email_3"
+            android:drawablePadding="10px"
             android:gravity="center"
-            android:text="Call 311 Toronto" />
+            android:text="@string/contactEmail" />
 
         <TextView
-            android:id="@id/contactView_callToAction"
+            android:id="@id/contactView_twitter"
             style="@style/H3"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="Tap to call..." />
+            android:drawableLeft="@drawable/twitter_3"
+            android:drawablePadding="10px"
+            android:gravity="center"
+            android:text="@string/contactTwitter" />
     </LinearLayout>
-
-    <TextView
-        android:id="@id/contactView_email"
-        style="@style/H3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/email_3"
-        android:gravity="center_vertical"
-        android:text="311@toronto.ca" />
-
-    <TextView
-        android:id="@id/contactView_twitter"
-        style="@style/H3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/twitter_3"
-        android:gravity="center_vertical"
-        android:text="\@311toronto" />
 
 </LinearLayout>

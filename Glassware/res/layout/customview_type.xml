@@ -11,30 +11,25 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
-        <ImageView
-            android:id="@id/typeView_mainActionIcon"
-            android:layout_width="50px"
+        <TextView
+            android:id="@id/typeView_directory"
+            android:layout_width="130px"
             android:layout_height="50px"
-            android:src="@drawable/noise_1" />
-
-        <ImageView
-            android:id="@id/typeView_categoryIcon"
-            android:layout_width="50px"
-            android:layout_height="50px"
-            android:layout_marginLeft="40px"
-            android:src="@drawable/noise_1" />
+            android:drawablePadding="10px"
+            android:gravity="center"
+            android:text="@string/typeViewDirectorySeperator"
+            android:textSize="12pt" />
     </LinearLayout>
 
     <TextView
         android:id="@id/typeView_title"
-        android:textSize="40px"
-        android:textColor="@android:color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30px"
         android:lines="3"
-        android:text="This is max 3 lines long This is max 3 lines long This is max 3 lines long This is max 3 lines long This is max 3 lines long" />
+        android:textColor="@android:color/white"
+        android:textSize="40px" />
 
     <TextView
         style="@style/footer"
@@ -42,6 +37,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20px"
-        android:text="( Tap to Report )" />
+        android:text="@string/typeViewCallToAction" />
 
 </LinearLayout>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<trigger command="TAKE_A_NOTE" >
+<trigger keyword="@string/glass_voice_trigger" >
 
     <constraints
         camera="true"

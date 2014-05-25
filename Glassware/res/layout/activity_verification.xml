@@ -33,7 +33,7 @@
                 android:id="@id/verificationView_categoryIcon"
                 android:layout_width="40px"
                 android:layout_height="40px"
-                android:layout_marginleft="20px"
+                android:layout_marginLeft="20px"
                 android:src="@drawable/ic_launcher" />
         </LinearLayout>
 
@@ -53,6 +53,7 @@
             android:textSize="40px"
             android:lines="3"	
             android:text="Which searches all the free resources such as Google and Whitepages to bring back free" />
+
 
         <TextView
             android:layout_width="match_parent"

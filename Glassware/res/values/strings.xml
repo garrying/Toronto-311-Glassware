@@ -3,6 +3,8 @@
 
     <string name="app_name">311 Toronto</string>
     
+    <string name="glass_voice_trigger">report damage</string>
+    
     <!-- Main Action View -->
     <string name="mainActionViewTitle_sidewalk">Sidewalk</string>
     <string name="mainActionViewSubtitle_sidewalk">This is a description of sidewalk</string>
@@ -25,6 +27,23 @@
     <string name="categoryMaintanence">Maintanence</string>
     <string name="categoryMissing">Missing</string>
     <string name="categoryTiming">Timing</string>
+    
+    <!-- Contact -->
+    <string name="contactTitle">Call 311 Toronto</string>
+    <string name="contactCallToAction">Tap to call &#8230;</string>
+    <string name="contactEmail">311\@toronto.ca</string>
+    <string name="contactTwitter">\@311toronto</string>
+    <string name="contactNumber"></string>
+    
+    <!-- Type View -->
+    <string name="typeViewDirectorySeperator">></string>
+    <string name="typeViewCallToAction">( Tap to Report )</string>
+    
+    <!-- Verification -->
+    <string name="verificationMenuItem_send">Send Report</string>
+    <string name="verificationMenuItem_retake">Retake Image</string>
+    <string name="verificationMenuItem_view">View Report</string>
+    <string name="verificationMenuItem_discard">Discard Report</string>
     
 </resources>
  

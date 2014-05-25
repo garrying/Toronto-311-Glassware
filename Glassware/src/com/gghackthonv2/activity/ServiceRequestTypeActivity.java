@@ -1,5 +1,6 @@
 package com.gghackthonv2.activity;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,12 +9,15 @@ import com.gghackthonv2.model.ActionCategoryType;
 import com.gghackthonv2.view.TypeView;
 import com.gghackthonv2.view.MainActionView.MainActionType;
 import com.google.android.glass.media.CameraManager;
+import com.google.android.glass.media.Sounds;
 import com.google.android.glass.widget.CardScrollAdapter;
 import com.google.android.glass.widget.CardScrollView;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.AudioManager;
 import android.os.Bundle;
+import android.os.FileObserver;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -27,8 +31,6 @@ public class ServiceRequestTypeActivity extends Activity {
 	public static final String EXTRA_SERVICE_REQUEST_CATEGORY = "extra_service_request_category";
 	public static final String EXTRA_SERVICE_REQUEST_TYPE = "extra_service_request_type";
 	public static final String EXTRA_SERVICE_REQUEST_PICTURE_URL = "extra_service_request_picture_url";
-	public static final String EXTRA_CATEGORY_ICON = "extra_category_icon";
-	public static final String EXTRA_MAIN_ACTION_ICON = "extra_main_action_icon";
 	
 	private static final int TAKE_PICTURE_REQUEST = 1;
 	
@@ -59,28 +61,24 @@ public class ServiceRequestTypeActivity extends Activity {
 
 	private List<String> mTypeList;
 	private List<TypeView> mTypeViews;
-	private String mMainActionIcon;
-	private String mCategoryIcon;
+	private MainActionType mMainAction;
+	private Category mCategory;
 	
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		Intent intent = getIntent();
-		MainActionType action = (MainActionType) intent.getSerializableExtra(ServiceRequestCategoryActivity.EXTRA_SELECTED_ACTION);
-		Category category = (Category) intent.getSerializableExtra(ServiceRequestCategoryActivity.EXTRA_SELECTED_CATEGORY);
-		mMainActionIcon = (String) intent.getSerializableExtra(ServiceRequestCategoryActivity.EXTRA_MAIN_ACTION_ICON);
-		mCategoryIcon = (String) intent.getSerializableExtra(ServiceRequestCategoryActivity.EXTRA_CATEGORY_ICON);
-		
+		mMainAction = (MainActionType) intent.getSerializableExtra(ServiceRequestCategoryActivity.EXTRA_SELECTED_ACTION);
+		mCategory = (Category) intent.getSerializableExtra(ServiceRequestCategoryActivity.EXTRA_SELECTED_CATEGORY);
+
 		ActionCategoryType actionCategoryType = new ActionCategoryType();
-		mTypeList = actionCategoryType.getTypeList(action, category);
+		mTypeList = actionCategoryType.getTypeList(mMainAction, mCategory);
 		createActionViews(mTypeList);
 		
 		verificationIntent = new Intent (this, VerificationActivity.class);
-		verificationIntent.putExtra(EXTRA_SERVICE_REQUEST_ACTION, action);
-		verificationIntent.putExtra(EXTRA_SERVICE_REQUEST_CATEGORY, category);
-		verificationIntent.putExtra(EXTRA_MAIN_ACTION_ICON, mMainActionIcon);
-		verificationIntent.putExtra(EXTRA_CATEGORY_ICON, mCategoryIcon);
+		verificationIntent.putExtra(EXTRA_SERVICE_REQUEST_ACTION, mMainAction);
+		verificationIntent.putExtra(EXTRA_SERVICE_REQUEST_CATEGORY, mCategory);
 		
 		CardScrollViewAdapter adapter = new CardScrollViewAdapter();
 
@@ -93,6 +91,7 @@ public class ServiceRequestTypeActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				selectedOption(position);
+				((AudioManager) getSystemService(AUDIO_SERVICE)).playSoundEffect(Sounds.TAP);
 			}
 		});
 
@@ -102,7 +101,7 @@ public class ServiceRequestTypeActivity extends Activity {
 	private void createActionViews(List<String> types) {
 		mTypeViews = new ArrayList<TypeView>();
 		for (String type : types) {
-			TypeView typeView = new TypeView(this, type, mMainActionIcon, mCategoryIcon);
+			TypeView typeView = new TypeView(this, type, mMainAction.getIconId(), mCategory.getIconId());
 			mTypeViews.add(typeView);
 		}
 	}
@@ -125,15 +124,63 @@ public class ServiceRequestTypeActivity extends Activity {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 	    if (requestCode == TAKE_PICTURE_REQUEST && resultCode == RESULT_OK) {
-	        String picturePath = data.getStringExtra(
-	                CameraManager.EXTRA_PICTURE_FILE_PATH);
-	        Log.i("ServiceRequestTypeActivity", "Picture path : " + picturePath);
+	        String picturePath = data.getStringExtra(CameraManager.EXTRA_PICTURE_FILE_PATH);
 	        
-	        verificationIntent.putExtra(EXTRA_SERVICE_REQUEST_PICTURE_URL, picturePath);
-	        
-	        startActivity(verificationIntent);
+	        processPictureWhenReady(picturePath);	
 	    }
-
 	    super.onActivityResult(requestCode, resultCode, data);
+	}
+	
+	private void startVerificationActivity(final String picturePath) {
+		verificationIntent.putExtra(EXTRA_SERVICE_REQUEST_PICTURE_URL, picturePath);
+		startActivity(verificationIntent);
+	}
+	
+	private void processPictureWhenReady(final String picturePath) {
+	    final File pictureFile = new File(picturePath);
+
+	    if (pictureFile.exists()) {
+	        // The picture is ready; process it.
+	    	Log.i("service request type activity", "pic is ready");
+	    	startVerificationActivity(picturePath);
+	    } else {
+	        // The file does not exist yet. Before starting the file observer, you
+	        // can update your UI to let the user know that the application is
+	        // waiting for the picture (for example, by displaying the thumbnail
+	        // image and a progress indicator).
+	    	Log.i("service request type activity", "pic is not ready");
+
+	        final File parentDirectory = pictureFile.getParentFile();
+	        FileObserver observer = new FileObserver(parentDirectory.getPath(),
+	                FileObserver.CLOSE_WRITE | FileObserver.MOVED_TO) {
+	            // Protect against additional pending events after CLOSE_WRITE
+	            // or MOVED_TO is handled.
+	            private boolean isFileWritten;
+
+	            @Override
+	            public void onEvent(int event, String path) {
+	                if (!isFileWritten) {
+	                    // For safety, make sure that the file that was created in
+	                    // the directory is actually the one that we're expecting.
+	                    File affectedFile = new File(parentDirectory, path);
+	                    isFileWritten = affectedFile.equals(pictureFile);
+
+	                    if (isFileWritten) {
+	                        stopWatching();
+
+	                        // Now that the file is ready, recursively call
+	                        // processPictureWhenReady again (on the UI thread).
+	                        runOnUiThread(new Runnable() {
+	                            @Override
+	                            public void run() {
+	                                processPictureWhenReady(picturePath);
+	                            }
+	                        });
+	                    }
+	                }
+	            }
+	        };
+	        observer.startWatching();
+	    }
 	}
 }

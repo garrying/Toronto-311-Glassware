@@ -17,14 +17,13 @@ public class CategoryView extends LinearLayout {
 	private TextView mSubtitleTV;
 	private ImageView mMainActionIconIV;
 	
-	public CategoryView (Context context, Category category, MainActionType mainActionType, String mainActionIcon) {
+	public CategoryView (Context context, Category category, MainActionType mainActionType) {
 		this(context, null, 0);
 		
 		mTitleTV.setText(getResources().getString(category.getNameId()));
 		mTitleTV.setCompoundDrawablesWithIntrinsicBounds(category.getIconId(), 0, 0, 0);
-		
-		int iconID = getResources().getIdentifier(mainActionIcon , "drawable", context.getPackageName());
-		mMainActionIconIV.setImageResource(iconID);
+
+		mMainActionIconIV.setImageResource(mainActionType.getIconId());
 		
 		mSubtitleTV.setText("this is the subtitle");
 	}

@@ -10,30 +10,26 @@
     <item name="categoryView_title" type="id"/>
     <item name="categoryView_subtitle" type="id"/>
     <item name="categoryView_mainActionIcon" type="id"/>
-    
+
     <!-- TypeView -->
     <item name="typeView_title" type="id"/>
-    <item name="typeView_categoryIcon" type="id"/>
-    <item name="typeView_mainActionIcon" type="id"/>
-    
-    <!-- RowView -->
-    <item name="categoryRowView_image" type="id"/>
-    <item name="categoryRowView_title" type="id"/>
+    <item name="typeView_directory" type="id"/>
 
     <!-- VerificationView -->
-    <item name="verificationView_reportImage" type="id"/>
-    <item name="verificationView_actionIcon" type="id"/>
-    <item name="verificationView_categoryIcon" type="id"/>
+    <item name="verificationView_layout" type="id"/>
     <item name="verificationView_title" type="id"/>
     <item name="verificationView_location" type="id"/>
+    <item name="verificationView_time" type="id"/>
     
-    <item name="verificationView_descriptionThree" type="id"/>
-    <item name="verificationView_descriptionFour" type="id"/>
+    <item name="verificationMenuItem_send" type="id"/>
+    <item name="verificationMenuItem_retake" type="id"/>
+    <item name="verificationMenuItem_view" type="id"/>
+    <item name="verificationMenuItem_discard" type="id"/>
 
+    <!-- ContactView -->
     <item name="contactView_action" type="id"/>
     <item name="contactView_callToAction" type="id"/>
     <item name="contactView_email" type="id"/>
-    <item name="contactView_fax" type="id"/>
     <item name="contactView_twitter" type="id"/>
-    
+
 </resources>

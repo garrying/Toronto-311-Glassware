@@ -3,7 +3,11 @@ package com.gghackthonv2.view;
 import com.gghackthonv2.toronto_311_glassware.R;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -12,19 +16,22 @@ import android.widget.TextView;
 public class TypeView extends LinearLayout {
 
 	private final TextView mTitleTV;
-	private final ImageView mMainActionIconIV;
-	private final ImageView mCategoryIconIV;
+	private final TextView mDirectoryTV;
 	
-	public TypeView (Context context, String typeString, String mainActionIcon, String categoryIcon) {
+	public TypeView (Context context, String typeString, int mainActionIcon, int categoryIcon) {
 		this(context, null, 0);
 		
 		mTitleTV.setText(typeString);
 		
-		int mainIconID = getResources().getIdentifier(mainActionIcon , "drawable", context.getPackageName());
-		mMainActionIconIV.setImageResource(mainIconID);
+		Drawable drawable = getResources().getDrawable(mainActionIcon);
+		Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
+		Drawable newMainActionDrawable = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmap, 50, 50, true));
+
+		drawable = getResources().getDrawable(categoryIcon);
+		bitmap = ((BitmapDrawable) drawable).getBitmap();
+		Drawable newCategoryDrawable = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmap, 50, 50, true));
 		
-		int categoryIconID = getResources().getIdentifier(categoryIcon , "drawable", context.getPackageName());
-		mCategoryIconIV.setImageResource(categoryIconID);
+		mDirectoryTV.setCompoundDrawablesWithIntrinsicBounds(newMainActionDrawable, null, newCategoryDrawable, null);
 	}
 	
 	public TypeView(Context context) {
@@ -43,7 +50,6 @@ public class TypeView extends LinearLayout {
 		LayoutInflater.from(context).inflate(R.layout.customview_type, this);
 
 		mTitleTV = (TextView) findViewById(R.id.typeView_title);
-		mMainActionIconIV = (ImageView) findViewById(R.id.typeView_mainActionIcon);
-		mCategoryIconIV = (ImageView) findViewById(R.id.typeView_categoryIcon);
+		mDirectoryTV = (TextView) findViewById(R.id.typeView_directory);
 	}	
 }

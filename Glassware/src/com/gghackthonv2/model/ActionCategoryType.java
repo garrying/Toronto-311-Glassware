@@ -4,8 +4,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-import android.util.Log;
-
 import com.gghackthonv2.helper.CategoryList.Category;
 import com.gghackthonv2.view.MainActionView.MainActionType;
 

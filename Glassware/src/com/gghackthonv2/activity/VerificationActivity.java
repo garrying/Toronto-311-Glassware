@@ -2,8 +2,6 @@ package com.gghackthonv2.activity;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -17,28 +15,33 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.WindowManager;
 
 import com.gghackthonv2.helper.CategoryList.Category;
 import com.gghackthonv2.toronto_311_glassware.R;
 import com.gghackthonv2.view.MainActionView.MainActionType;
 import com.google.android.glass.app.Card;
 import com.google.android.glass.app.Card.ImageLayout;
+import com.google.android.glass.media.Sounds;
 
 public class VerificationActivity extends Activity {
 
 	private static String TAG = "VerificationActivity";
-	
+
 	private Card mCard;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
 		Intent intent = getIntent();
 		MainActionType action = (MainActionType) intent
@@ -91,6 +94,7 @@ public class VerificationActivity extends Activity {
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_DPAD_CENTER) {
 			openOptionsMenu();
+			((AudioManager) getSystemService(AUDIO_SERVICE)).playSoundEffect(Sounds.TAP);
 			return true;
 		}
 		return false;
@@ -125,12 +129,17 @@ public class VerificationActivity extends Activity {
 
 					if (addresses != null) {
 						Address fetchedAddress = addresses.get(0);
-						addressString = fetchedAddress.getLocality();
+
+						StringBuilder strReturnedAddress = new StringBuilder("");
+						strReturnedAddress.append(fetchedAddress.getAddressLine(0));
+						strReturnedAddress.append(", " + fetchedAddress.getLocality());
+						addressString = strReturnedAddress.toString();
 					}
 
-					Date nowDate = new Date(lastKnownLoaction.getTime());
-					DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(getApplicationContext());
-					mCard.setFootnote("Time: " + dateFormat.format(nowDate) + "       Location: " + addressString);
+					// Date nowDate = new Date(lastKnownLoaction.getTime());
+					// DateFormat dateFormat =
+					// android.text.format.DateFormat.getDateFormat(getApplicationContext());
+					mCard.setFootnote(" Location: " + addressString);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

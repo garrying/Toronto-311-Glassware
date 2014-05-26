@@ -3,6 +3,15 @@ package com.gghackthonv2.activity;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.media.AudioManager;
+import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.AdapterView;
+
 import com.gghackthonv2.helper.CategoryList;
 import com.gghackthonv2.helper.CategoryList.Category;
 import com.gghackthonv2.view.CategoryView;
@@ -10,15 +19,6 @@ import com.gghackthonv2.view.MainActionView.MainActionType;
 import com.google.android.glass.media.Sounds;
 import com.google.android.glass.widget.CardScrollAdapter;
 import com.google.android.glass.widget.CardScrollView;
-
-import android.app.Activity;
-import android.content.Intent;
-import android.media.AudioManager;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
 
 public class ServiceRequestCategoryActivity extends Activity {
 
@@ -56,13 +56,12 @@ public class ServiceRequestCategoryActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
+		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+		
 		Intent intent = getIntent();
 
 		mMainActionType = (MainActionType) intent
 				.getSerializableExtra(MainActivity.EXTRA_SELECTED_ACTION_TYPE);
-
-		// String name =
-		// intent.getStringExtra(MainActivity.EXTRA_SELECT_ACTION_NAME);
 
 		mCategories = CategoryList.getCategories(mMainActionType);
 		createActionViews(mCategories);

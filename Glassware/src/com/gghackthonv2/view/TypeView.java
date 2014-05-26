@@ -1,17 +1,15 @@
 package com.gghackthonv2.view;
 
-import com.gghackthonv2.toronto_311_glassware.R;
-
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.gghackthonv2.toronto_311_glassware.R;
 
 public class TypeView extends LinearLayout {
 

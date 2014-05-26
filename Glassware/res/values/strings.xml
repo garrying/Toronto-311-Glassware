@@ -3,7 +3,7 @@
 
     <string name="app_name">311 Toronto</string>
     
-    <string name="glass_voice_trigger">report damage</string>
+    <string name="glass_voice_trigger">report to 311</string>
     
     <!-- Main Action View -->
     <string name="mainActionViewTitle_sidewalk">Sidewalk</string>

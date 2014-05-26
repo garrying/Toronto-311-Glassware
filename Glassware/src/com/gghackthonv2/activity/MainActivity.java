@@ -4,20 +4,20 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import com.gghackthonv2.toronto_311_glassware.R;
-import com.gghackthonv2.view.MainActionView;
-import com.gghackthonv2.view.MainActionView.MainActionType;
-import com.google.android.glass.media.Sounds;
-import com.google.android.glass.widget.CardScrollAdapter;
-import com.google.android.glass.widget.CardScrollView;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
+
+import com.gghackthonv2.view.MainActionView;
+import com.gghackthonv2.view.MainActionView.MainActionType;
+import com.google.android.glass.media.Sounds;
+import com.google.android.glass.widget.CardScrollAdapter;
+import com.google.android.glass.widget.CardScrollView;
 
 public class MainActivity extends Activity {
 
@@ -56,6 +56,8 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
+		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+		
 		createActionViews();
 
 		CardScrollViewAdapter adapter = new CardScrollViewAdapter();

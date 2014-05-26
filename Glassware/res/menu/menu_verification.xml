@@ -3,19 +3,15 @@
 
     <item
         android:id="@id/verificationMenuItem_send"
-        android:icon="@drawable/ic_launcher"
         android:title="@string/verificationMenuItem_send"/>
     <item
         android:id="@id/verificationMenuItem_retake"
-        android:icon="@drawable/ic_launcher"
         android:title="@string/verificationMenuItem_retake"/>
     <item
         android:id="@id/verificationMenuItem_view"
-        android:icon="@drawable/ic_launcher"
         android:title="@string/verificationMenuItem_view"/>
     <item
         android:id="@id/verificationMenuItem_discard"
-        android:icon="@drawable/ic_launcher"
         android:title="@string/verificationMenuItem_discard"/>
 
 </menu>
